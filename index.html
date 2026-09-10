@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff7e79" />
+    <meta name="description" content="SpinFood — hôm nay mình ăn gì?" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>SpinFood — Hôm nay mình ăn gì?</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="SpinFood trang chủ"><span>Spin</span>Food <i>♡</i></a>
+        <button class="menu-button" id="open-menu" type="button">🍱 Thực đơn <span id="dish-count">0</span></button>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">bữa hẹn hôm nay</p>
+        <h1>Hôm nay mình <em>ăn gì</em> nhỉ?</h1>
+        <p class="intro">Để định mệnh chọn giúp hai đứa một món thật ngon nhé.</p>
+      </section>
+
+      <section class="controls card" aria-label="Chọn ngữ cảnh">
+        <label>Ăn bữa nào?
+          <select id="meal-filter">
+            <option value="all">Bữa nào cũng được</option>
+            <option value="Trưa">Ăn trưa</option>
+            <option value="Tối">Ăn tối</option>
+            <option value="Ăn vặt">Ăn vặt</option>
+          </select>
+        </label>
+        <label>Hôm nay muốn...
+          <select id="mood-filter">
+            <option value="all">Để định mệnh chọn</option>
+            <option value="no">Ăn thật no</option>
+            <option value="light">Nhẹ nhàng</option>
+            <option value="spicy">Ăn cay</option>
+            <option value="new">Thử món mới</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="wheel-area" aria-label="Vòng quay chọn món">
+        <div class="pointer">▼</div>
+        <div class="wheel-wrap">
+          <div id="wheel" class="wheel" role="img" aria-label="Vòng quay chọn món">
+            <div class="wheel-center">QUAY<br /><span>♡</span></div>
+          </div>
+        </div>
+        <div class="floating-food food-one">🍜</div><div class="floating-food food-two">🥟</div><div class="floating-food food-three">🍓</div>
+      </section>
+
+      <button id="spin-button" class="spin-button" type="button">Quay cho mình đi! <span>✦</span></button>
+      <p class="hint" id="spin-hint">Thêm món vào thực đơn rồi bắt đầu nhé.</p>
+
+      <section class="history card">
+        <div class="section-heading"><div><p class="eyebrow">nhật ký hẹn ăn</p><h2>Mấy bữa gần đây</h2></div><span>🍽️</span></div>
+        <ul id="history-list" class="history-list"><li class="empty-state">Chưa có kỷ niệm nào — quay một món đi thôi!</li></ul>
+      </section>
+    </main>
+
+    <dialog id="menu-dialog" class="menu-dialog">
+      <div class="dialog-header"><div><p class="eyebrow">thực đơn của hai đứa</p><h2>Những món mình mê</h2></div><button class="close-button" type="button" aria-label="Đóng">×</button></div>
+      <form id="dish-form" class="dish-form">
+        <input id="dish-name" required maxlength="35" placeholder="Tên món, ví dụ: Lẩu Thái" />
+        <select id="dish-meal"><option value="Tối">Ăn tối</option><option value="Trưa">Ăn trưa</option><option value="Ăn vặt">Ăn vặt</option></select>
+        <select id="dish-mood"><option value="no">Ăn no</option><option value="light">Nhẹ nhàng</option><option value="spicy">Ăn cay</option><option value="new">Thử món mới</option></select>
+        <button type="submit">+ Thêm món</button>
+      </form>
+      <ul id="dish-list" class="dish-list"></ul>
+    </dialog>
+
+    <dialog id="result-dialog" class="result-dialog">
+      <div class="result-art">🥳</div><p class="eyebrow">định mệnh đã chọn</p><h2 id="result-title">Lẩu Thái</h2>
+      <p id="result-message">Tối nay mình đi ăn món này nhé?</p>
+      <div class="result-actions"><button id="save-result" class="primary" type="button">Chốt kèo ♡</button><button id="reroll" class="secondary" type="button">Quay lại</button></div>
+    </dialog>
+    <div id="confetti" aria-hidden="true"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
