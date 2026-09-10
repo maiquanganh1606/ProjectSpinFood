@@ -28,6 +28,7 @@
         <label>Ăn bữa nào?
           <select id="meal-filter">
             <option value="all">Bữa nào cũng được</option>
+            <option value="Sáng">Ăn sáng</option>
             <option value="Trưa">Ăn trưa</option>
             <option value="Tối">Ăn tối</option>
             <option value="Ăn vặt">Ăn vặt</option>
@@ -37,25 +38,22 @@
           <select id="mood-filter">
             <option value="all">Để định mệnh chọn</option>
             <option value="no">Ăn thật no</option>
-            <option value="light">Nhẹ nhàng</option>
+            <option value="broth">Món nước</option>
             <option value="spicy">Ăn cay</option>
             <option value="new">Thử món mới</option>
           </select>
         </label>
       </section>
 
-      <section class="wheel-area" aria-label="Vòng quay chọn món">
-        <div class="pointer">▼</div>
-        <div class="wheel-wrap">
-          <div id="wheel" class="wheel" role="img" aria-label="Vòng quay chọn món">
-            <div class="wheel-center">QUAY<br /><span>♡</span></div>
-          </div>
+      <section class="date-deck-area" aria-label="Hộp hẹn hò chọn món">
+        <div class="deck-note"><span>🐾</span><p><strong>Bếp trưởng Mèo</strong> đã chuẩn bị<br />ba hộp bất ngờ cho hai đứa.</p></div>
+        <div id="date-deck" class="date-deck">
+          <div class="deck-placeholder"><span>🎁</span><strong>Ba món bí mật đang chờ</strong><small>Khui hộp để xem ảnh món ăn nhé!</small></div>
         </div>
-        <div class="floating-food food-one">🍜</div><div class="floating-food food-two">🥟</div><div class="floating-food food-three">🍓</div>
       </section>
 
-      <button id="spin-button" class="spin-button" type="button">Quay cho mình đi! <span>✦</span></button>
-      <p class="hint" id="spin-hint">Thêm món vào thực đơn rồi bắt đầu nhé.</p>
+      <button id="deal-button" class="spin-button" type="button">Khui 3 hộp bất ngờ! <span>✦</span></button>
+      <p class="hint" id="spin-hint">Thêm món và ảnh vào thực đơn rồi bắt đầu nhé.</p>
 
       <section class="history card">
         <div class="section-heading"><div><p class="eyebrow">nhật ký hẹn ăn</p><h2>Mấy bữa gần đây</h2></div><span>🍽️</span></div>
@@ -67,8 +65,10 @@
       <div class="dialog-header"><div><p class="eyebrow">thực đơn của hai đứa</p><h2>Những món mình mê</h2></div><button class="close-button" type="button" aria-label="Đóng">×</button></div>
       <form id="dish-form" class="dish-form">
         <input id="dish-name" required maxlength="35" placeholder="Tên món, ví dụ: Lẩu Thái" />
-        <select id="dish-meal"><option value="Tối">Ăn tối</option><option value="Trưa">Ăn trưa</option><option value="Ăn vặt">Ăn vặt</option></select>
-        <select id="dish-mood"><option value="no">Ăn no</option><option value="light">Nhẹ nhàng</option><option value="spicy">Ăn cay</option><option value="new">Thử món mới</option></select>
+        <select id="dish-meal"><option value="Tối">Ăn tối</option><option value="Sáng">Ăn sáng</option><option value="Trưa">Ăn trưa</option><option value="Ăn vặt">Ăn vặt</option></select>
+        <select id="dish-mood"><option value="no">Ăn no</option><option value="broth">Món nước</option><option value="spicy">Ăn cay</option><option value="new">Thử món mới</option></select>
+        <input id="dish-photo-url" type="url" placeholder="Dán link ảnh (không bắt buộc)" />
+        <label class="upload-label" for="dish-photo-file">📷 Chọn ảnh từ máy<input id="dish-photo-file" type="file" accept="image/*" /></label>
         <button type="submit">+ Thêm món</button>
       </form>
       <ul id="dish-list" class="dish-list"></ul>
