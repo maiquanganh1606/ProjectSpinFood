@@ -1,4 +1,4 @@
-# SpinFood ♡
+# ProjectSpinFood — SpinFood ♡
 
 Một vòng quay đáng yêu để hai bạn quyết định hôm nay ăn gì.
 
